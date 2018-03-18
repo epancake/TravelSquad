@@ -1,21 +1,56 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { applyMiddleware, createStore } from 'redux';
+import { Provider } from "react-redux"
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { composeWithDevTools } from "redux-devtools-extension"
+import { logger } from 'redux-logger'
+import thunk from "redux-thunk"
+import rootReducer from "./rootReducer"
 import './App.css';
+import GroupPage from "./components/GroupPage.js"
+import Landing from "./components/Landing.js"
+import Toggle from "./components/Toggle.js"
 
-class App extends Component {
-  render() {
-    return (
+
+const apiUrl = 'https://travelsquadback.herokuapp.com/'
+
+const middleWare = [logger, thunk]
+
+const store = createStore(
+  rootReducer,
+  {},
+  composeWithDevTools(applyMiddleware(...middleWare)),
+)
+
+const App = () => (
+  <Provider store={store}>
+    <Router>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <Link to="/">
+            <h1>TravelSquad</h1>
+          </Link>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Toggle/>
+        <Switch>
+          <Route exact path="/" component={Landing}/>
+          <Route path="/:id" component={GroupPage}/>
+        </Switch>
       </div>
-    );
-  }
-}
+    </Router>
+  </Provider>
+)
+  
+  // componentDidMount() {
+  //   fetch(apiUrl)
+  //     .then(response => response.json())
+  //     .then(response => {console.log('r', response); return response})
+  //     .then(data => {
+  //       this.setState({
+  //         groups: data.groups,
+  //         users: data.users
+  //     })})
+  //     .then(console.log('s', this.state.groups));  
+  // }
 
 export default App;
