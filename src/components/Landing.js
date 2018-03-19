@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 const Landing = () => (
       <div className="landing">
-        <header className="App-head./er">
+        <header className="landing-header">
           <Link to="/">
             <h1>TravelSquad</h1>
           </Link>
-          <button><Link to="/new">new group</Link></button>
         </header>
+        <button><Link to="/new">new group</Link></button>
         <Toggle/>
       </div>
 )

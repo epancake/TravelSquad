@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 
 
 const mapStateToProps = (state) => ({
-  users: state.message.travelData.users,
+  users: state.appData.travelData.users,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewGroup);
