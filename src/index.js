@@ -8,21 +8,4 @@ import reducer from './components/reducer';
 import './index.css';
 import App from './App';
 
-const history = createBrowserHistory();
-
-const rootReducer = combineReducers({
-  main: reducer,
-  router: routerReducer
-})
-
-const middleware = routerMiddleware(history)
-
-const store = createStore(rootReducer, {}, applyMiddleware(middleware, thunk))
-
-startListener(history, store);
-
-ReactDOM.render(  
-  <Provider store={store}>
-    <App />
-  </Provider>, 
-  document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

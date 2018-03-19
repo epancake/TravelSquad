@@ -16,7 +16,7 @@ const Toggle = ({ messageVisibility, toggleMessage }) => (
 );
 
 const mapStateToProps = (state) => ({
-  messageVisibility: state.message.messageVisibility,
+  messageVisibility: state.appData.messageVisibility,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

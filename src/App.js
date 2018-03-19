@@ -11,32 +11,29 @@ import NewGroup from "./components/NewGroup.js"
 import About from "./components/About.js"
 import Landing from "./components/Landing.js"
 import Toggle from "./components/Toggle.js"
+import GroupPage from "./components/NewGroup.js"
 
 
-const apiUrl = 'https://travelsquadback.herokuapp.com/'
+const middleware = [logger, thunk]
 
-class App extends Component {
+const store = createStore(
+  rootReducer, 
+  {},
+  composeWithDevTools(applyMiddleware(...middleware)),
+);
 
-  get activeComponent() {
-    console.log(this.props)
-    switch (this.props.url) {
-      case "/":
-        return <Landing/>;
-      case "/new":
-        return <NewGroup/>;
-      case "/about":
-        return <About/>;
-      default:
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        {this.activeComponent}
+const App = () => (
+  <Provider store={store}>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Landing}/>
+          <Route path="/new" component={NewGroup}/>
+        </Switch>
       </div>
-    )
-  }
-}
+    </Router>
+  </Provider>
+)
+
 
 export default App;
