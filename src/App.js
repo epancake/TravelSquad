@@ -26,15 +26,9 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div className="App">
-        <header className="App-header">
-          <Link to="/">
-            <h1>TravelSquad</h1>
-          </Link>
-        </header>
-        <Toggle/>
         <Switch>
           <Route exact path="/" component={Landing}/>
-          <Route path="/:id" component={GroupPage}/>
+          <Route path="/new" component={GroupPage}/>
         </Switch>
       </div>
     </Router>

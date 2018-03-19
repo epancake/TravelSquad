@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import message from "./components/reducer"
+import appData from "./components/reducer"
 
 const rootReducer = combineReducers({
-  message,
+  appData,
 });
 
 export default rootReducer;
