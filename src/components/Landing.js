@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
-import Toggle from "./Toggle.js"
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-const Landing = () => (
+class Landing extends Component {
+
+  render() {
+    return (
+
       <div className="landing">
         <header className="landing-header">
           <Link to="/">
             <h1>TravelSquad</h1>
           </Link>
         </header>
-        <button><Link to="/new">new group</Link></button>
-        <Toggle/>
+        <button className="createGroup">
+          <Link to="/new">Create Group</Link>
+        </button>
       </div>
-)
+    )
+  }
+
+}
 
 export default Landing;
