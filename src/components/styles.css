@@ -1,0 +1,36 @@
+.hidden {
+  display: none;
+}
+
+.invite-friends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.invite-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.groupList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.groupList ul {
+  list-style: disc;
+}
+
+.instructions {
+  padding: 1rem;
+}
+
+.person {
+  white-space: nowrap;
+}
+
+.bnbimg {
+  width: 8rem
+}
