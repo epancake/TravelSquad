@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const baseUrl = "http://localhost:3000"
+const baseUrl = "https://travel-squad.firebaseapp.com"
 const apiUrl = "https://travelsquadback.herokuapp.com"
 
 class NewGroup extends Component {
